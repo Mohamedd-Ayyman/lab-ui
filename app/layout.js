@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import AnimatedName from "./components/animation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +23,17 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <nav className="bg-black fixed w-full flex justify-center items-center px-8 h-20 text-2xl z-50">
+          <div className="flex-initial">
+            <div className="flex justify-end items-center relative">
+              <div className="flex mr-4 items-center">
+                <AnimatedName />
+              </div>
+            </div>
+          </div>
+        </nav>
+
+        <main className="pt-20">{children}</main>
       </body>
     </html>
   );
